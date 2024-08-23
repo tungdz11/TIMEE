@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đồng Hồ Điện Tử</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #282c34;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .clock {
+            text-align: center;
+            font-size: 100px; /* Kích thước phông chữ lớn hơn */
+            background-color: #282c34; /* Màu nền đồng hồ trùng với màu nền trang để xóa viền */
+            padding: 20px 40px;
+        }
+
+        #time {
+            font-family: 'Courier New', monospace;
+            color: #00FF00; /* Màu của số */
+            font-weight: bold; /* Tăng độ dày số */
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div id="time"></div>
+    </div>
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            document.getElementById('time').textContent = timeString;
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+</body>
+</html>
